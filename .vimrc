@@ -1,8 +1,9 @@
+" break with the busted old vi junk
+" must be first, as it changes other options as a side effect
+set nocompatible
+
 " show line numbers
 set number
-
-" break with the busted old vi junk
-" set nocompatible
 
 " enable syntax highlighting
 syntax on
