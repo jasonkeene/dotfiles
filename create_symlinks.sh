@@ -1,7 +1,8 @@
 #!/bin/bash
 
 DOTFILES=".vim .vimrc .gvimrc"
-REPO_PATH=`dirname $0`
+DIRNAME=`dirname $0`
+REPO_PATH=`cd $DIRNAME; pwd`
 
 for DOTFILE in $DOTFILES; do
     if [ -e ~/$DOTFILE ]; then
