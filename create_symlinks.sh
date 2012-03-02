@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=".vim .vimrc"
+DOTFILES=".vim .vimrc .gvimrc"
 REPO_PATH=`dirname $0`
 
 for DOTFILE in $DOTFILES; do

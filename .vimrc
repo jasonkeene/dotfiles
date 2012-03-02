@@ -16,3 +16,13 @@ let python_highlight_all = 1
 
 " pathogen
 call pathogen#infect()
+
+" syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_quiet_warnings = 0
+let g:syntastic_python_checker = 'pylint'
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['python'],
+                           \ 'passive_filetypes': [] }
