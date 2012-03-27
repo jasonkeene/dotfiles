@@ -1,0 +1,24 @@
+[user]
+	name = Jason Keene
+	email = jasonkeene@gmail.com
+
+[core]
+	pager = less -FRSX # enable colors and quit if shorter than the screen
+
+[color]
+	ui = auto
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	co = checkout
+	aa = add --all
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge $LOCAL $REMOTE
