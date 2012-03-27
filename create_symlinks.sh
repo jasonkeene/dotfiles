@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=".vim .vimrc .gvimrc"
+DOTFILES=".vim .vimrc .gvimrc .bash_aliases .bash_profile .pythonrc.py"
 DIRNAME=`dirname $0`
 REPO_PATH=`cd $DIRNAME; pwd`
 
