@@ -1,14 +1,12 @@
 #!/bin/bash
 
-if [ -n "${DOTFILES:-x}" ]; then
+if [ ! "$DOTFILES" ]; then
     DOTFILES=".vim .vimrc .gvimrc .bash_aliases .bash_profile .pythonrc.py"
-done
-if [ -n "${DIRNAME:-x}" ]; then
+fi
+if [ ! "$REPO_PATH" ]; then
     DIRNAME=`dirname $0`
-done
-if [ -n "${REPO_PATH:-x}" ]; then
     REPO_PATH=`cd $DIRNAME; pwd`
-done
+fi
 
 for DOTFILE in $DOTFILES; do
     if [ -e ~/$DOTFILE ]; then
