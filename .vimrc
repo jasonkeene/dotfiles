@@ -14,6 +14,21 @@ filetype plugin indent on
 " need this to highlight python builtins
 let python_highlight_all = 1
 
+" highlight search results
+set hlsearch
+
+" allow background buffers
+set hidden
+
+" set leader
+let mapleader = ","
+
+" keep a longer history
+set history=1000
+
+" make file/command tab completion useful
+set wildmode=list:longest
+
 " pathogen
 call pathogen#infect()
 
@@ -26,3 +41,24 @@ let g:syntastic_python_checker = 'pylint'
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['python'],
                            \ 'passive_filetypes': [] }
+
+" enable display of invisible characters
+set list
+" testers
+" use the same symbols as textmate for tabs and eols
+set listchars=tab:▸\ ,eol:¬
+
+" invisible character colors
+highlight NonText ctermfg=0
+highlight SpecialKey ctermfg=0
+
+" glboal tab settings
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
