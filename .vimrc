@@ -5,6 +5,12 @@ set nocompatible
 " show line numbers
 set number
 
+" don't wrap lines eva!
+set nowrap
+
+" highlight characters past 80 cols
+:match ErrorMsg '\%>80v.\+'
+
 " enable syntax highlighting
 syntax on
 
