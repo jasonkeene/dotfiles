@@ -11,6 +11,7 @@ fi
 alias ls="ls -laG"
 alias reset="deactivate; cd; clear"
 alias nmap="nmap -A -T4"
+alias gvim="mvim"
 
 
 # pandasay
