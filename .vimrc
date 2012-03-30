@@ -47,7 +47,7 @@ colorscheme lucius
 
 " enable display of invisible characters
 set list
-" testers
+
 " use the same symbols as textmate for tabs and eols
 set listchars=tab:▸\ ,eol:¬
 
