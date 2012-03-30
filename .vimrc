@@ -42,6 +42,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['python'],
                            \ 'passive_filetypes': [] }
 
+" color themes
+colorscheme lucius
+
 " enable display of invisible characters
 set list
 " testers
@@ -49,8 +52,8 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " invisible character colors
-highlight NonText ctermfg=0
-highlight SpecialKey ctermfg=0
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 " glboal tab settings
 set tabstop=4
