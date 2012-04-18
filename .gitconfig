@@ -8,6 +8,7 @@
 [color]
 	ui = auto
 [merge]
+	ff = false # turn off fast forward merges by default
 	tool = diffmerge
 [mergetool "diffmerge"]
 	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
