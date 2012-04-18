@@ -28,6 +28,12 @@ export PATH="/Users/laocoon/jython2.5.2/bin:${PATH}"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
+# git
+
+if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+    . /usr/local/git/contrib/completion/git-completion.bash
+fi
+
 # misc env
 
 export PATH=~/.local/bin:$PATH
