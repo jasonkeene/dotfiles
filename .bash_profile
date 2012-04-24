@@ -1,8 +1,4 @@
 
-# PANDA!!!!
-
-cat /etc/motd
-
 # macports
 
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
@@ -60,3 +56,7 @@ export ARCHFLAGS='-arch i386 -arch x86_64'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# PANDA!!!!
+
+cat /etc/motd | pandasay
