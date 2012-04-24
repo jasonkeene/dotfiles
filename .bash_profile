@@ -14,6 +14,7 @@ export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
 export PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 export PYTHONSTARTUP=~/.pythonrc.py
+export PYTHONDONTWRITEBYTECODE=1 # don't write pyc/pyo
 
 # ruby
 
