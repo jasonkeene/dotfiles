@@ -37,14 +37,13 @@ export PATH=~/.local/bin:$PATH
 export PS1="\n\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]\n\[\033[01;34m\]\w\[\033[00m\]\\n$ "
 export TM_RST2HTML=/Library/Frameworks/Python.framework/Versions/2.6/bin/rst2html.py
 
-# virtualenvwrapper
+# virtualenv
 
+export VIRTUALENV_DISTRIBUTE=1
 export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages" # this doesn't appear to work :/
-source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper.sh
-alias mkvirtualenv="mkvirtualenv --no-site-packages"
-alias mkvirtualenv2.7="mkvirtualenv -p python2.7 --no-site-packages"
+source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+alias mkvirtualenv2.6="mkvirtualenv -p python2.6"
 
 # make c stuff easier to build :D
 
