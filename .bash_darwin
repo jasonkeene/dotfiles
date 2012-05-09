@@ -1,0 +1,45 @@
+
+# macports
+
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+
+# python
+
+export PATH=/Library/Frameworks/Python.framework/Versions/3.2/bin:$PATH
+export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=/Library/Frameworks/Python.framework/Versions/2.6/bin:$PATH
+export PATH=/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH
+
+
+# java
+
+export PATH=~/jython2.5.2/bin:$PATH
+
+
+# mysql
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+
+
+# git
+
+git_completion_script=/usr/local/git/contrib/completion/git-completion.bash
+[ -f $git_completion_script ] && . $git_completion_script
+
+
+# ruby
+
+export PATH=~/.gem/ruby/1.8/bin:$PATH
+[[ -s "~/.rvm/scripts/rvm" ]] && . ~/.rvm/scripts/rvm # rvm thing
+
+
+# textmate
+
+export TM_RST2HTML=/Library/Frameworks/Python.framework/Versions/Current/bin/rst2html.py
+
+
+# make c stuff easier to build :D
+
+export CC=gcc-4.2
+export ARCHFLAGS='-arch i386 -arch x86_64'

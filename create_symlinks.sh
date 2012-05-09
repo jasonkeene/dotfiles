@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! "$DOTFILES" ]; then
-    DOTFILES=".vim .vimrc .gvimrc .bash_aliases .bash_profile .pythonrc.py .gitconfig"
+    DOTFILES=".cowsay .vim .vimrc .gvimrc .bash_aliases .bash_darwin .bash_linux .bash_profile .bashrc .pythonrc.py .gitconfig"
 fi
 if [ ! "$REPO_PATH" ]; then
     DIRNAME=`dirname $0`
