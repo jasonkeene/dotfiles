@@ -61,11 +61,16 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
-" glboal tab settings
+" global tab settings
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set smarttab
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" global text columns
+set textwidth=80
 
 " source the vimrc file after saving it
 if has("autocmd")
