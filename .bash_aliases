@@ -15,9 +15,10 @@ alias la="ls -la"
 alias reset="deactivate; cd; clear"
 alias nmap="nmap -A -T4"
 if [ ! "`which gvim`" ] && [ "`which mvim`" ]; then
-    alias gvim="mvim"
+    alias gvim=mvim
 fi
-
+alias mate=gvim
+alias vim=gvim
 
 # pandasay
 
