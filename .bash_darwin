@@ -41,5 +41,5 @@ export TM_RST2HTML=/Library/Frameworks/Python.framework/Versions/Current/bin/rst
 
 # make c stuff easier to build :D
 
-export CC=gcc-4.2
+# export CC=gcc-4.2
 export ARCHFLAGS='-arch i386 -arch x86_64'
