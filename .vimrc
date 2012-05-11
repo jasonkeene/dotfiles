@@ -48,6 +48,16 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['python'],
                            \ 'passive_filetypes': [] }
 
+" activate virtualenv
+:python << EOF
+import os
+virtualenv = os.environ.get('VIRTUAL_ENV')
+if virtualenv:
+    activate_this = os.path.join(virtualenv, 'bin', 'activate_this.py')
+    if os.path.exists(activate_this):
+        execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 " color themes
 colorscheme lucius
 
