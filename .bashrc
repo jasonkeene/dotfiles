@@ -39,6 +39,11 @@ fi
 export PS1="\n\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]\n\[\033[01;34m\]\w\[\033[00m\]\\n$ "
 
 
+# terminal colors
+
+TERM=xterm-256color
+
+
 # history
 
 shopt -s histappend # append to the history file, don't overwrite it
