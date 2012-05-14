@@ -32,6 +32,9 @@ set hidden
 " set leader
 let mapleader = ","
 
+" key maps
+nnoremap <leader><leader> <c-^>
+
 " keep a longer history
 set history=1000
 
