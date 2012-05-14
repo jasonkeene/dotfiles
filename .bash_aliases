@@ -11,14 +11,15 @@ if [ `uname` == 'Darwin' ]; then
 else
     alias ls="ls --color"
 fi
-alias la="ls -la"
+alias la="ls -laF"
 alias reset="deactivate; cd; clear"
 alias nmap="nmap -A -T4"
-if [ ! "`which gvim`" ] && [ "`which mvim`" ]; then
-    alias gvim=mvim
-fi
+[ ! "`which gvim`" ] && [ "`which mvim`" ] && alias gvim=mvim
 alias mate=gvim
 alias vim=gvim
+[ ! "`which pbcopy`" ] && [ "`which xclip`" ] && alias pbcopy='xclip -selection clipboard'
+[ ! "`which pbpaste`" ] && [ "`which xclip`" ] && alias pbpaste='xclip -selection clipboard -o'
+
 
 # pandasay
 
