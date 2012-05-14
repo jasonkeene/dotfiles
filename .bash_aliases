@@ -11,7 +11,7 @@ if [ `uname` == 'Darwin' ]; then
 else
     alias ls="ls --color"
 fi
-alias la="ls -la"
+alias la="ls -laF"
 alias reset="deactivate; cd; clear"
 alias nmap="nmap -A -T4"
 if [ ! "`which gvim`" ] && [ "`which mvim`" ]; then
@@ -19,6 +19,7 @@ if [ ! "`which gvim`" ] && [ "`which mvim`" ]; then
 fi
 alias mate=gvim
 alias vim=gvim
+
 
 # pandasay
 
