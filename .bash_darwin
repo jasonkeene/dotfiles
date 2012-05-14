@@ -31,7 +31,7 @@ git_completion_script=/usr/local/git/contrib/completion/git-completion.bash
 # ruby
 
 export PATH=~/.gem/ruby/1.8/bin:$PATH
-[[ -s "~/.rvm/scripts/rvm" ]] && . ~/.rvm/scripts/rvm # rvm thing
+[ -s ~/.rvm/scripts/rvm ] && . ~/.rvm/scripts/rvm # rvm thing
 
 
 # textmate
