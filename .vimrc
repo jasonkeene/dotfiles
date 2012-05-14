@@ -2,6 +2,9 @@
 " must be first, as it changes other options as a side effect
 set nocompatible
 
+" store swp files centrally
+set dir=~/tmp
+
 " show line numbers
 set number
 
