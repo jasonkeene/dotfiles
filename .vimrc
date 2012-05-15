@@ -34,6 +34,8 @@ let mapleader = ","
 
 " key maps
 nnoremap <leader><leader> <c-^>
+" clear the search buffer when hitting return
+nnoremap <CR> :nohlsearch<cr>
 
 " keep a longer history
 set history=1000
