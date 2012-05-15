@@ -90,6 +90,18 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " global text columns
 set textwidth=80
 
+" rename current file
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
 " autocmd stuff
 if has("autocmd")
   " source the vimrc file after saving it
