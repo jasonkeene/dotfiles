@@ -88,7 +88,13 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " global text columns
 set textwidth=80
 
-" source the vimrc file after saving it
+" autocmd stuff
 if has("autocmd")
+  " source the vimrc file after saving it
   autocmd bufwritepost .vimrc source $MYVIMRC
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 endif
