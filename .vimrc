@@ -33,7 +33,10 @@ set hidden
 let mapleader = ","
 
 " key maps
+" switch between files
 nnoremap <leader><leader> <c-^>
+" run pytest
+nnoremap <leader>f <esc>:Pytest file<CR>
 " clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
 
@@ -101,6 +104,16 @@ function! RenameFile()
     endif
 endfunction
 map <leader>n :call RenameFile()<cr>
+
+" diff with saved
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
 
 " autocmd stuff
 if has("autocmd")
