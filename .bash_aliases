@@ -1,11 +1,9 @@
 
 # server aliases
-
 [ -f ~/.bash_server_aliases ] && . ~/.bash_server_aliases
 
 
 # convenience stuff
-
 if [ `uname` == 'Darwin' ]; then
     alias ls="ls -G"
 else
@@ -23,7 +21,6 @@ alias vim=gvim
 
 
 # pandasay
-
 alias pandasay="cowsay -f ~/.cowsay/panda.cow"
 
 
@@ -32,7 +29,6 @@ alias pandasay="cowsay -f ~/.cowsay/panda.cow"
 
 
 # pyquality (i no longer use this)
-
 # pyquality_install () {
 #     pip install pep8 pyflakes pylint http://softlayer.dl.sourceforge.net/project/pychecker/pychecker/0.8.19/pychecker-0.8.19.tar.gz
 # }
@@ -70,7 +66,6 @@ alias pandasay="cowsay -f ~/.cowsay/panda.cow"
 
 
 # pushd (i no longer use this)
-
 # alias dirs='dirs -v'
 # alias d='dirs'
 # grab_args() {
