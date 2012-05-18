@@ -5,6 +5,9 @@ set nocompatible
 " store swp files centrally
 set dir=~/tmp
 
+" don't backup osx's tmp dir
+set backupskip=/tmp/*,/private/tmp/*
+
 " show line numbers
 set number
 
