@@ -2,6 +2,9 @@
 " must be first, as it changes other options as a side effect
 set nocompatible
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " store swp files centrally
 set dir=~/tmp
 
@@ -10,6 +13,9 @@ set backupskip=/tmp/*,/private/tmp/*
 
 " show line numbers
 set number
+
+" show lines in lower right
+set ruler
 
 " don't wrap lines eva!
 set nowrap
