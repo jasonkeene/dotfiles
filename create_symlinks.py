@@ -2,8 +2,10 @@
 """Create symlinks for dotfiles."""
 
 import os
+import sys
 
 
+"""The dotfiles you wish to symlink."""
 DOTFILES = {
     ".cowsay",
     ".vim",
@@ -32,7 +34,9 @@ DOTFILES = {
     ".virtualenvs/prermproject",
     ".virtualenvs/prermvirtualenv",
 }
+"""The home path for your user."""
 HOME_PATH = os.path.expanduser('~')
+"""The path to the dotfiles repository."""
 REPO_PATH = os.path.dirname(os.path.abspath(os.path.join(os.getcwd(),
                                                          __file__)))
 
@@ -105,4 +109,8 @@ def main(dotfiles):
 
 
 if __name__ == '__main__':
+    """Additional arguments will override default behavior."""
+    if len(sys.argv) > 1:
+        DOTFILES = set(sys.argv[1:])
+        REPO_PATH = os.getcwd()
     main(DOTFILES)
