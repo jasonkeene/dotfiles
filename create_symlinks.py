@@ -7,6 +7,7 @@ import sys
 
 """The dotfiles you wish to symlink."""
 DOTFILES = {
+    ".coveragerc",
     ".cowsay",
     ".vim",
     ".vimrc",
@@ -83,7 +84,7 @@ def create_symlink(dirname, filename):
         os.symlink(link_dst, link_path)
 
 
-def main(dotfiles):
+def main(dotfiles):  # pragma: no cover
     """Interactively create symlinks for all of the dotfiles."""
     for dotfile in dotfiles:
         dirname, filename = split_dotfile(dotfile)
