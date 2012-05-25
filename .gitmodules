@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/pytest"]
 	path = .vim/bundle/pytest
 	url = https://github.com/alfredodeza/pytest.vim.git
+[submodule ".vim/bundle/commentary"]
+	path = .vim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
