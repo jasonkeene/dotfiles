@@ -3,6 +3,7 @@
 
 import os
 import sys
+import shutil
 
 
 """The dotfiles you wish to symlink."""
@@ -43,7 +44,7 @@ REPO_PATH = os.path.dirname(os.path.abspath(os.path.join(os.getcwd(),
 
 
 class InvalidLinkAlreadyExists(Exception):
-    """Exception raised if a bad link exists where a link is to be created."""
+    """Raised if a bad link exists where a link is to be created."""
     def __init__(self, link_path, link_dst, actual_dst, *args, **kwargs):
         self.link_path = link_path
         self.link_dst = link_dst
@@ -52,10 +53,17 @@ class InvalidLinkAlreadyExists(Exception):
 
 
 class FileAlreadyExists(Exception):
-    """Exception raised when a file exists where a link is to be created."""
+    """Raised when a file exists where a link is to be created."""
     def __init__(self, link_path, *args, **kwargs):
         self.link_path = link_path
         super(FileAlreadyExists, self).__init__(*args, **kwargs)
+
+
+class DirectoryAlreadyExists(Exception):
+    """Raised when a directory exists where a link is to be created."""
+    def __init__(self, link_path, *args, **kwargs):
+        self.link_path = link_path
+        super(DirectoryAlreadyExists, self).__init__(*args, **kwargs)
 
 
 def split_dotfile(dotfile):
@@ -78,6 +86,8 @@ def create_symlink(dirname, filename):
         actual_dst = os.readlink(link_path)
         if actual_dst != link_dst:
             raise InvalidLinkAlreadyExists(link_path, link_dst, actual_dst)
+    elif os.path.isdir(link_path):
+        raise DirectoryAlreadyExists(link_path)
     elif os.path.exists(link_path):
         raise FileAlreadyExists(link_path)
     else:
@@ -91,6 +101,8 @@ def main(dotfiles):  # pragma: no cover
         create_directory(dirname)
         try:
             create_symlink(dirname, filename)
+            # TODO: give user the option to backup or diff if something
+            #       already exists
         except InvalidLinkAlreadyExists as exception:
             print "Link already exists but is invalid:"
             print "  link_path", exception.link_path
@@ -107,10 +119,17 @@ def main(dotfiles):  # pragma: no cover
             if delete.lower() in ['', 'y', 'yes']:
                 os.remove(exception.link_path)
                 create_symlink(dirname, filename)
+        except DirectoryAlreadyExists as exception:
+            print "Directory already exists at:"
+            print "  link_path:", exception.link_path
+            delete = raw_input("Do you want to delete this directory? [Y/n]: ")
+            if delete.lower() in ['', 'y', 'yes']:
+                shutil.rmtree(exception.link_path)
+                create_symlink(dirname, filename)
 
 
 if __name__ == '__main__':
-    """Additional arguments will override default behavior."""
+    # Additional arguments will override default behavior.
     if len(sys.argv) > 1:
         DOTFILES = set(sys.argv[1:])
         REPO_PATH = os.getcwd()

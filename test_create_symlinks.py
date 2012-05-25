@@ -115,5 +115,17 @@ def test_file_already_exists(tmpdir):
             with pytest.raises(create_symlinks.FileAlreadyExists):
                 create_symlink(dirname, dotfile)
 
-# TODO: test_directory_already_exists
 
+def test_directory_already_exists(tmpdir):
+    dirname = '.dirname'
+    dotfile = 'test_dotfile'
+    test_home_dir = str(tmpdir.join('test_home_dir'))
+    test_repo_dir = '/test/repo/path'
+    with patch('create_symlinks.HOME_PATH', new=test_home_dir):
+        create_directory(dirname)
+        with patch('create_symlinks.REPO_PATH', new=test_repo_dir):
+            link_path = os.path.join(test_home_dir, dirname, dotfile)
+            link_dst = os.path.join(test_repo_dir, dirname, dotfile)
+            os.mkdir(link_path)
+            with pytest.raises(create_symlinks.DirectoryAlreadyExists):
+                create_symlink(dirname, dotfile)
