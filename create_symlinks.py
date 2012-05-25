@@ -43,27 +43,27 @@ REPO_PATH = os.path.dirname(os.path.abspath(os.path.join(os.getcwd(),
                                                          __file__)))
 
 
-class InvalidLinkAlreadyExists(Exception):
+class _AlreadyExistsBase(Exception):
+    def __init__(self, link_path, *args, **kwargs):
+        self.link_path = link_path
+        super(_AlreadyExistsBase, self).__init__(*args, **kwargs)
+
+
+class InvalidLinkAlreadyExists(_AlreadyExistsBase):
     """Raised if a bad link exists where a link is to be created."""
     def __init__(self, link_path, link_dst, actual_dst, *args, **kwargs):
-        self.link_path = link_path
         self.link_dst = link_dst
         self.actual_dst = actual_dst
-        super(InvalidLinkAlreadyExists, self).__init__(*args, **kwargs)
+        super(InvalidLinkAlreadyExists, self).__init__(link_path, *args,
+                                                       **kwargs)
 
 
-class FileAlreadyExists(Exception):
+class FileAlreadyExists(_AlreadyExistsBase):
     """Raised when a file exists where a link is to be created."""
-    def __init__(self, link_path, *args, **kwargs):
-        self.link_path = link_path
-        super(FileAlreadyExists, self).__init__(*args, **kwargs)
 
 
-class DirectoryAlreadyExists(Exception):
+class DirectoryAlreadyExists(_AlreadyExistsBase):
     """Raised when a directory exists where a link is to be created."""
-    def __init__(self, link_path, *args, **kwargs):
-        self.link_path = link_path
-        super(DirectoryAlreadyExists, self).__init__(*args, **kwargs)
 
 
 def split_dotfile(dotfile):
