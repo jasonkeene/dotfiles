@@ -114,3 +114,6 @@ def test_file_already_exists(tmpdir):
             open(link_path, 'w').close()
             with pytest.raises(create_symlinks.FileAlreadyExists):
                 create_symlink(dirname, dotfile)
+
+# TODO: test_directory_already_exists
+
