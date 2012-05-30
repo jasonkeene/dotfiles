@@ -88,6 +88,7 @@ nnoremap <CR> :nohlsearch<cr>
 
 " pathogen
 call pathogen#infect()
+:Helptags " generate docs from pathogen bundles
 
 " syntastic
 let g:syntastic_check_on_open = 1
