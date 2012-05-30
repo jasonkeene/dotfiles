@@ -29,6 +29,9 @@ set textwidth=78
 " highlight current line
 :set cursorline
 
+" invert and bold status line
+set highlight=sbr
+
 " enable syntax highlighting
 syntax on
 
