@@ -10,6 +10,9 @@ else
     alias ls="ls --color"
 fi
 alias la="ls -laF"
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias reset="deactivate; cd; clear"
 alias nmap="nmap -A -T4"
 [ ! "`which gvim`" ] && [ "`which mvim`" ] && alias gvim=mvim
