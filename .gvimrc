@@ -7,8 +7,10 @@ set guioptions-=r
 
 " set font to something purdy
 if has("x11")
-    set guifont=Monaco\ 10
+    " linux
+    set guifont=Inconsolata\ 10
 else
+    " mac
     set guifont=Monaco:h10
 endif
 

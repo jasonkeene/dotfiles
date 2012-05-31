@@ -13,6 +13,7 @@ DOTFILES = {
     ".vim",
     ".vimrc",
     ".gvimrc",
+    ".gtkrc-2.0",
     ".bash_aliases",
     ".bash_darwin",
     ".bash_linux",
