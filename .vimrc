@@ -67,6 +67,10 @@ set smarttab
 " keep a longer history
 set history=1000
 
+" endable folding
+set foldmethod=indent
+set foldlevel=99
+
 " make file/command tab completion useful
 set wildmode=list:longest
 
