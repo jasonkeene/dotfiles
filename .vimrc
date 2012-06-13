@@ -22,6 +22,7 @@ set nowrap
 
 " global text columns
 set textwidth=78
+set formatoptions+=l " don't automatically break long lines less they are new
 
 " highlight characters past 78 cols
 :match ErrorMsg '\%>78v.\+'
