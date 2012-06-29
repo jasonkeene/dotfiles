@@ -10,7 +10,7 @@
 [merge]
 	tool = diffmerge
 [mergetool "diffmerge"]
-	cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
 	trustExitCode = true
 [mergetool]
 	keepBackup = false
@@ -25,4 +25,4 @@
 [diff]
 	tool = diffmerge
 [difftool "diffmerge"]
-	cmd = diffmerge $LOCAL $REMOTE
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
