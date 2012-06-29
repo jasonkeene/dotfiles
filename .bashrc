@@ -34,7 +34,13 @@ fi
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
-export PS1="\n\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]\n\[\033[01;34m\]\w\[\033[00m\]\\n$ "
+function current_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$([[ `git status --porcelain 2> /dev/null` ]] && echo "*")]/"
+}
+export PS1="\n\
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\] \$(current_git_branch)\n\
+\[\033[01;34m\]\w\[\033[00m\]\\n\
+$ "
 
 
 # terminal colors
