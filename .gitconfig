@@ -4,16 +4,8 @@
 
 [core]
 	pager = less -FRSX # enable colors and quit if shorter than the screen
-
 [color]
 	ui = auto
-[merge]
-	tool = diffmerge
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
-[mergetool]
-	keepBackup = false
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	co = checkout
@@ -22,7 +14,29 @@
 	st = status
 	di = diff
 	dc = diff --cached
+
+# diff/merge tools
+
 [diff]
 	tool = diffmerge
+[merge]
+	tool = diffmerge
+[mergetool]
+	keepBackup = false
+
+# diffmerge
+
 [difftool "diffmerge"]
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+
+# kdiff3
+
+[difftool "kdiff3"]
+	path = kdiff3
+	trustExitCode = false
+[mergetool "kdiff3"]
+	path = kdiff3
+	trustExitCode = false
