@@ -75,6 +75,8 @@ set foldlevel=99
 " make file/command tab completion useful
 set wildmode=list:longest
 
+" keep cursor somewhat centered
+set scrolloff=25
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
