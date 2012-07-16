@@ -21,6 +21,8 @@ alias vim=gvim
 [ ! "`which pbcopy`" ] && [ "`which xclip`" ] && alias pbcopy='xclip -selection clipboard'
 [ ! "`which pbpaste`" ] && [ "`which xclip`" ] && alias pbpaste='xclip -selection clipboard -o'
 [ "`which gnome-open`" ] && alias open='gnome-open'
+alias diff='diff -u'
+[ "`which colordiff`" ] && alias diff='colordiff -u'
 
 
 # pandasay
