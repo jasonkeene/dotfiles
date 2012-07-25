@@ -78,6 +78,10 @@ set wildmode=list:longest
 " keep cursor somewhat centered
 set scrolloff=25
 
+" clipboard fusion!
+set clipboard+=unnamed clipboard+=unnamedplus
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
