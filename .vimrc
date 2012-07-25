@@ -79,7 +79,7 @@ set wildmode=list:longest
 set scrolloff=25
 
 " clipboard fusion!
-set clipboard+=unnamed clipboard+=unnamedplus
+set clipboard^=unnamed clipboard^=unnamedplus
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
