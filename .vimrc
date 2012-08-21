@@ -2,6 +2,37 @@
 " must be first, as it changes other options as a side effect
 set nocompatible
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" pathogen
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+
+" super tab
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" python mode
+let g:pymode_lint_checker = "pylint,pyflakes,pep8,mccabe"
+let g:pymode_lint_cwindow = 0
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Generic Stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" detect file type, turn on that type's plugins and indent preferences
+filetype plugin indent on
+
+" enable syntax highlighting
+syntax on
+
+" color scheme
+colorscheme lucius
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -24,29 +55,21 @@ set nowrap
 set textwidth=78
 set formatoptions+=l " don't automatically break long lines less they are new
 
-" highlight characters past 78 cols
-:match ErrorMsg '\%>78v.\+'
+" highlight col 80
+set colorcolumn=80
+highlight ColorColumn guibg=gray16
 
 " highlight current line
-:set cursorline
+set cursorline
 
 " invert and bold status line
 set highlight=sbr
-
-" enable syntax highlighting
-syntax on
-
-" detect file type, turn on that type's plugins and indent preferences
-filetype plugin indent on
 
 " highlight search results
 set hlsearch
 
 " allow background buffers
 set hidden
-
-" color themes
-colorscheme lucius
 
 " enable display of invisible characters
 set list
@@ -97,45 +120,6 @@ nnoremap <leader>f <esc>:Pytest file<CR>
 
 " clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" pathogen
-call pathogen#infect()
-
-" syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_balloons = 1
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_quiet_warnings = 0
-let g:syntastic_python_checker = 'pylint'
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['python'],
-                           \ 'passive_filetypes': [] }
-
-" super tab
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python Stuff
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" need this to highlight python builtins
-let python_highlight_all = 1
-
-" activate virtualenv
-:python << EOF
-import os
-virtualenv = os.environ.get('VIRTUAL_ENV')
-if virtualenv:
-    activate_this = os.path.join(virtualenv, 'bin', 'activate_this.py')
-    if os.path.exists(activate_this):
-        execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
