@@ -15,4 +15,7 @@
 	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule ".vim/bundle/python-mode"]
 	path = .vim/bundle/python-mode
-	url = git://github.com/klen/python-mode.git
+	url = https://github.com/klen/python-mode.git
+[submodule ".vim/bundle/bufkill"]
+	path = .vim/bundle/bufkill
+	url = https://github.com/vim-scripts/bufkill.vim.git

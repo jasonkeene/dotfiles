@@ -18,6 +18,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " python mode
 let g:pymode_lint_checker = "pylint,pyflakes,pep8,mccabe"
 let g:pymode_lint_cwindow = 0
+let g:pymode_breakpoint_key = '<leader>d'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
