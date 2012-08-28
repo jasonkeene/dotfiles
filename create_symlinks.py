@@ -22,6 +22,7 @@ DOTFILES = {
     ".pythonrc.py",
     ".gitconfig",
     ".hgrc",
+    ".pylintrc",
     ".virtualenvs/get_env_details",
     ".virtualenvs/initialize",
     ".virtualenvs/postactivate",
