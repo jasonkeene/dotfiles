@@ -59,6 +59,7 @@ set formatoptions+=l " don't automatically break long lines less they are new
 " highlight col 80
 set colorcolumn=80
 highlight ColorColumn guibg=gray16
+highlight ColorColumn ctermbg=Black
 
 " highlight current line
 set cursorline
@@ -121,6 +122,10 @@ nnoremap <leader>f <esc>:Pytest file<CR>
 
 " clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
+
+" reselect when indenting
+vnoremap < <gv
+vnoremap > >gv
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
