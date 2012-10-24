@@ -12,9 +12,6 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
-" super tab
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
 " python mode
 let g:pymode_lint_checker = "pylint,pyflakes,pep8,mccabe"
 let g:pymode_lint_cwindow = 0
