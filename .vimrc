@@ -15,7 +15,7 @@ call pathogen#helptags()
 " python mode
 let g:pymode_lint_checker = "pylint,pyflakes,pep8,mccabe"
 let g:pymode_lint_cwindow = 0
-let g:pymode_breakpoint_key = '<leader>d'
+let g:pymode_breakpoint_key = '<leader>p'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,7 +98,7 @@ set foldlevel=99
 set wildmode=list:longest
 
 " keep cursor somewhat centered
-set scrolloff=25
+" set scrolloff=25
 
 " clipboard fusion!
 set clipboard^=unnamed clipboard^=unnamedplus
@@ -116,6 +116,11 @@ nnoremap <leader><leader> <c-^>
 
 " run pytest
 nnoremap <leader>f <esc>:Pytest file<CR>
+
+" rope stuff
+map <leader>g :call RopeGotoDefinition()<CR>
+map <leader>d :call RopeShowDoc()<CR>
+
 
 " clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
