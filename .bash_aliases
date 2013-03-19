@@ -6,6 +6,7 @@ else
     alias ls="ls --color"
 fi
 alias la="ls -laF"
+alias lt='la -t | head'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
