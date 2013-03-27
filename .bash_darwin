@@ -34,10 +34,10 @@ unset git_completion_script
 complete -o default -o nospace -W "$(\
     awk 'BEGIN {ORS=" ";} /^Host/ {sub("^Host ", ""); print}' < ~/.ssh/config | \
     python -c 'import sys; \
-               print " ".join({
+               print " ".join(set(
                    host for host in sys.stdin.read().split()
                        if "*" not in host and
-                          "?" not in host})')" rsync ssh scp sftp sshfs
+                          "?" not in host))')" rsync ssh scp sftp sshfs
 
 
 # make c stuff easier to build :D
