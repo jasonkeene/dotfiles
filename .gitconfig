@@ -14,6 +14,7 @@
 	st = status
 	di = diff
 	dc = diff --cached
+	pu = pull --ff-only
 
 # diff/merge tools
 
