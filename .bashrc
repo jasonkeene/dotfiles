@@ -69,3 +69,5 @@ if type pandasay &> /dev/null; then
 else
     cat /etc/motd
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
