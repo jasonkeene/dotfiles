@@ -1,6 +1,7 @@
 
 # macports
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export CFLAGS="-I /opt/local/include -L /opt/local/lib $CFLAGS"
 
 
 # python
