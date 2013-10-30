@@ -18,11 +18,12 @@ export PATH=~/.local/bin:$PATH
 [ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONDONTWRITEBYTECODE=1 # don't write pyc/pyo
 export VIRTUALENV_DISTRIBUTE=1 # use distribute w/ virtualenvs
-if which virtualenvwrapper.sh &> /dev/null; then
+if which virtualenvwrapper.sh-2.7 &> /dev/null; then
     # use virtualenvwrapper
     export WORKON_HOME=~/.virtualenvs
+    export PROJECT_HOME=~/projects
     [ -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
-    . virtualenvwrapper.sh
+    . virtualenvwrapper.sh-2.7
     alias mkvirtualenv2.6="mkvirtualenv -p python2.6"
 fi
 
