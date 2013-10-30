@@ -1,8 +1,15 @@
 #!/bin/bash
 # This hook is run after every virtualenv is activated.
 
-proj_name=$(echo $VIRTUAL_ENV|awk -F'/' '{print $NF}')
-if [ -d ~/projects/$proj_name ]; then
-    cd ~/projects/$proj_name
-fi
+# add a newline after virtualenv name
 export PS1="\n$PS1"
+
+# source postactivate hook
+_HOOK_PATH=bin/postactivate
+_PROJECT_FILE=$VIRTUAL_ENV/$VIRTUALENVWRAPPER_PROJECT_FILENAME
+
+if [ -s $_PROJECT_FILE ]; then
+    export _PROJECT_DIR=$(cat $_PROJECT_FILE)
+    _HOOK=$_PROJECT_DIR/$_HOOK_PATH
+    [ -f $_HOOK ] && . $_HOOK
+fi
