@@ -44,3 +44,7 @@ complete -o default -o nospace -W "$(\
 # make c stuff easier to build :D
 # export CC=gcc-4.2
 export ARCHFLAGS='-arch i386 -arch x86_64'
+
+
+# packer
+export PATH=/usr/local/packer:$PATH

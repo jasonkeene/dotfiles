@@ -129,6 +129,8 @@ nnoremap <CR> :nohlsearch<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+:command W w
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Additional Scripts

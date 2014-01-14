@@ -53,6 +53,10 @@ TERM=xterm-256color
 export EDITOR=`which vim`
 
 
+# set bash vi mode
+set -o vi
+
+
 # history
 shopt -s histappend # append to the history file, don't overwrite it
 HISTSIZE=1000
