@@ -18,6 +18,7 @@
 	pu = pull --ff-only
 	mm = merge master
 	fa = fetch --all --prune
+    pom = push origin master
 
 # diff/merge tools
 

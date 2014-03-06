@@ -31,6 +31,7 @@ alias gdc="git dc"
 alias gaa="git aa"
 alias gmm="git mm"
 alias gfa="git fa"
+alias gpom="git pom"
 
 
 # pandasay
