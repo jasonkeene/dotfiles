@@ -22,5 +22,15 @@ alias diff='diff -u'
 [ "`which colordiff`" ] && alias diff='colordiff -u'
 
 
+# git
+alias gs="git st"
+alias gm="git co master"
+alias gd="git di"
+alias gdc="git dc"
+alias gaa="git aa"
+alias gmm="git merge master"
+alias gfa="git fetch --all -p"
+
+
 # pandasay
 alias pandasay="cowsay -f ~/.cowsay/panda.cow"
