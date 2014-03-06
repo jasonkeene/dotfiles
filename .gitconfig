@@ -4,6 +4,7 @@
 
 [core]
 	pager = less -FRSX # enable colors and quit if shorter than the screen
+	excludesfile = ~/.gitexclude
 [color]
 	ui = auto
 [alias]
