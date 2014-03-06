@@ -23,13 +23,14 @@ alias diff='diff -u'
 
 
 # git
+alias gst="git st"
 alias gs="git st"
-alias gm="git co master"
-alias gd="git di"
+alias gcm="git co master"
+alias gdi="git di"
 alias gdc="git dc"
 alias gaa="git aa"
-alias gmm="git merge master"
-alias gfa="git fetch --all -p"
+alias gmm="git mm"
+alias gfa="git fa"
 
 
 # pandasay

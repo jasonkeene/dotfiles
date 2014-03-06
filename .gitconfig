@@ -16,6 +16,8 @@
 	di = diff
 	dc = diff --cached
 	pu = pull --ff-only
+	mm = merge master
+	fa = git fetch --all --prune
 
 # diff/merge tools
 
