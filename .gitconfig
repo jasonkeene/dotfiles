@@ -23,9 +23,9 @@
 # diff/merge tools
 
 [diff]
-	tool = Kaleidoscope
+	tool = diffmerge
 [merge]
-	tool = Kaleidoscope
+	tool = diffmerge
 [mergetool]
 	keepBackup = false
 	prompt = false
@@ -46,6 +46,9 @@
 [mergetool "kdiff3"]
 	path = kdiff3
 	trustExitCode = false
+
+# Kaleidoscope
+
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
