@@ -27,6 +27,9 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 
 
 # bash complete
+ports_completion_script=/opt/local/etc/profile.d/bash_completion.sh
+[ -f $ports_completion_script ] && . $ports_completion_script
+unset ports_completion_script
 # git
 git_completion_script=/usr/local/git/contrib/completion/git-completion.bash
 [ -f $git_completion_script ] && . $git_completion_script
@@ -38,7 +41,11 @@ complete -o default -o nospace -W "$(\
                print " ".join(set(
                    host for host in sys.stdin.read().split()
                        if "*" not in host and
-                          "?" not in host))')" rsync ssh scp sftp sshfs
+                          "?" not in host))')" rsync ssh scp sftp sshfs iterm_exec.py
+
+
+# create aliases for iTerm scripts
+eval $(ls ~/Library/Application\ Support/iTerm/Scripts/ | grep --color=never -E '\.scpt$' | sed 's/\.scpt$//g' | while read SCRIPT_NAME; do echo "alias $SCRIPT_NAME='osascript ~/Library/Application\ Support/iTerm/Scripts/$SCRIPT_NAME.scpt';"; done)
 
 
 # make c stuff easier to build :D

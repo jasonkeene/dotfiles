@@ -72,3 +72,8 @@ else
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export MY=8044
+export STORE=8055
+export WWW=8066
+export INTRANET=8077
