@@ -16,8 +16,8 @@ def interactive_setup():
     # restore history if it exists
     if os.path.exists(history_path):
         readline.read_history_file(history_path)
-    # save history ot exit
 
+    # save history on exit
     def save_history(path=history_path, length=history_length):
         import readline
         readline.set_history_length(length)
