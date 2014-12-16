@@ -24,7 +24,6 @@ if which virtualenvwrapper.sh-2.7 &> /dev/null; then
     export PROJECT_HOME=~/projects
     [ -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
     . virtualenvwrapper.sh-2.7
-    alias mkvirtualenv2.6="mkvirtualenv -p python2.6"
 fi
 
 
@@ -73,7 +72,6 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-export MY=8044
-export STORE=8055
-export WWW=8066
-export INTRANET=8077
+
+# local stuff
+[ -f ~/.bash_local ] && . ~/.bash_local
