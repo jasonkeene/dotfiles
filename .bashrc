@@ -27,6 +27,11 @@ if which virtualenvwrapper.sh-2.7 &> /dev/null; then
 fi
 
 
+# go stuff
+export GOPATH=~/gobal  # global go workspace
+export PATH=$PATH:$GOPATH/bin
+
+
 # shell prompt
 # TODO just pulled this out of debian bashrc with slight modifications
 #      works well on the mac but might want to generalize it
@@ -69,9 +74,6 @@ if type pandasay &> /dev/null; then
 else
     cat /etc/motd
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 
 # local stuff
 [ -f ~/.bash_local ] && . ~/.bash_local

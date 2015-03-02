@@ -17,6 +17,23 @@ let g:pymode_lint_checker = "pylint,pyflakes,pep8,mccabe"
 let g:pymode_lint_cwindow = 0
 let g:pymode_breakpoint_key = '<leader>p'
 
+" go vim
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Generic Stuff
@@ -169,3 +186,13 @@ if has("autocmd")
         \   exe "normal g`\"" |
         \ endif
 endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARROW KEYS ARE UNACCEPTABLE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
