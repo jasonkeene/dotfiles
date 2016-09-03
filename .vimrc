@@ -22,17 +22,13 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,7 +50,7 @@ set backspace=indent,eol,start
 " store swp files centrally
 set dir=~/tmp
 
-" don't backup osx's tmp dir
+" don't backup tmp dirs
 set backupskip=/tmp/*,/private/tmp/*
 
 " show line numbers
@@ -72,8 +68,8 @@ set formatoptions+=l " don't automatically break long lines less they are new
 
 " highlight col 80
 set colorcolumn=80
-highlight ColorColumn guibg=gray16
-highlight ColorColumn ctermbg=Black
+"highlight ColorColumn guibg=gray16
+highlight ColorColumn ctermbg=235
 
 " highlight current line
 set cursorline
@@ -90,12 +86,14 @@ set hidden
 " enable display of invisible characters
 set list
 
-" use the same symbols as textmate for tabs and eols
+" use special symbols for tabs and eols
 set listchars=tab:▸\ ,eol:¬
 
 " invisible character colors
 highlight NonText guifg=#4a4a59
+highlight NonText ctermfg=239
 highlight SpecialKey guifg=#4a4a59
+highlight SpecialKey ctermfg=239
 
 " global tab settings
 set tabstop=4
@@ -105,20 +103,20 @@ set expandtab
 set smarttab
 
 " keep a longer history
-set history=1000
+set history=10000
 
 " endable folding
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 
 " make file/command tab completion useful
 set wildmode=list:longest
 
-" keep cursor somewhat centered
-" set scrolloff=25
-
 " clipboard fusion!
 set clipboard^=unnamed clipboard^=unnamedplus
+
+" highlight go-vim
+highlight goSameId term=bold cterm=bold ctermbg=250 ctermfg=239
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -131,14 +129,6 @@ let mapleader = ","
 " switch between files
 nnoremap <leader><leader> <c-^>
 
-" run pytest
-nnoremap <leader>f <esc>:Pytest file<CR>
-
-" rope stuff
-map <leader>g :call RopeGotoDefinition()<CR>
-map <leader>d :call RopeShowDoc()<CR>
-
-
 " clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<cr>
 
@@ -147,45 +137,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 :command W w
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Additional Scripts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" rename current file
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>n :call RenameFile()<cr>
-
-" diff with saved
-function! s:DiffWithSaved()
-    let filetype=&ft
-    diffthis
-    vnew | r # | normal! 1Gdd
-    diffthis
-    exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
-
-" autocmd stuff
-if has("autocmd")
-    " source the vimrc file after saving it
-    autocmd bufwritepost .vimrc source $MYVIMRC
-
-    " jump to last cursor position unless it's invalid or in an event handler
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
-endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
