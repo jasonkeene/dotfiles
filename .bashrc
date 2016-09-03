@@ -79,5 +79,8 @@ else
     cat /etc/motd
 fi
 
+# local path
+export PATH=$HOME/.local/bin:$PATH
+
 # local stuff
 [ -f ~/.bash_local ] && . ~/.bash_local
