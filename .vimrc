@@ -31,6 +31,12 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "5s"
+let g:go_list_type = "quickfix"
+set updatetime=100 " updates :GoInfo faster
 
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -98,9 +104,9 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " invisible character colors
-highlight NonText guifg=#4a4a59
+"highlight NonText guifg=#4a4a59
 highlight NonText ctermfg=239
-highlight SpecialKey guifg=#4a4a59
+"highlight SpecialKey guifg=#4a4a59
 highlight SpecialKey ctermfg=239
 
 " global tab settings
@@ -126,6 +132,8 @@ set clipboard^=unnamed clipboard^=unnamedplus
 " highlight go-vim
 highlight goSameId term=bold cterm=bold ctermbg=250 ctermfg=239
 
+" automatically write file when calling out to make
+set autowrite
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -144,7 +152,37 @@ nnoremap <CR> :nohlsearch<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+" make W the same as w in case of typo
 :command W w
+
+" vim-go command shortcuts
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>a <Plug>(go-alternate-edit)
+autocmd FileType go nmap <leader>d :GoDeclsDir<CR>
+autocmd FileType go nmap <leader>g <Plug>(go-generate)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+function! s:toggle_coverage()
+    call go#coverage#BufferToggle(!g:go_jump_to_error)
+    highlight ColorColumn ctermbg=235
+    highlight NonText ctermfg=239
+    highlight SpecialKey ctermfg=239
+    highlight goSameId term=bold cterm=bold ctermbg=250 ctermfg=239
+endfunction
+
+autocmd FileType go nmap <leader>c :<C-u>call <SID>toggle_coverage()<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
