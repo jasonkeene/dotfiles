@@ -59,13 +59,17 @@ export EDITOR=`which vim`
 
 # history
 shopt -s histappend # append to the history file, don't overwrite it
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 shopt -s checkwinsize # update window size LINES and COLUMNS
 
 
 # include aliases
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
+
+
+# direnv
+[ "`which direnv`" ] && eval "$(direnv hook bash)"
 
 
 # PANDA!!!!
