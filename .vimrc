@@ -19,8 +19,13 @@ let g:pymode_breakpoint_key = '<leader>p'
 
 " go vim
 let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
@@ -43,6 +48,9 @@ syntax on
 
 " color scheme
 colorscheme lucius
+
+" set 256 color
+set t_Co=256
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
