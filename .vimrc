@@ -17,7 +17,7 @@ let g:pymode_lint_checker = "pylint,pyflakes,pep8,mccabe"
 let g:pymode_lint_cwindow = 0
 let g:pymode_breakpoint_key = '<leader>p'
 
-" go vim
+" vim-go
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_highlight_types = 1
@@ -41,6 +41,11 @@ set updatetime=100 " updates :GoInfo faster
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 
+" ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn|vagrant)|node_modules)$',
+  \ 'file': '\v\.(swp|zip|exe|so|dll|a)$',
+  \ }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Generic Stuff
