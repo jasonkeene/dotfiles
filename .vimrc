@@ -152,6 +152,13 @@ nnoremap <CR> :nohlsearch<cr>
 vnoremap < <gv
 vnoremap > >gv
 
+" remove the need to hit c-w for navigating splits
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+
+
 " make W the same as w in case of typo
 :command W w
 
