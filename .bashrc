@@ -61,7 +61,15 @@ function gcloud {
     if ! docker inspect gcloud-config > /dev/null 2>&1; then
         docker run -it --name gcloud-config google/cloud-sdk:alpine gcloud auth login
     fi
-    docker run -it --rm --volumes-from gcloud-config google/cloud-sdk:alpine gcloud $@
+    docker run -it --rm --volumes-from gcloud-config -v $PWD:/pwd google/cloud-sdk:alpine gcloud $@
+}
+
+# aws
+function aws {
+    if ! docker inspect aws-config > /dev/null 2>&1; then
+        docker run -it --name aws-config mesosphere/aws-cli configure
+    fi
+    docker run -it --rm --volumes-from aws-config -v $PWD:/pwd mesosphere/aws-cli $@
 }
 
 # k8s
