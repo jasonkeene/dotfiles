@@ -7,6 +7,9 @@ platform_script="$HOME/.bash_$(uname | awk '{ print tolower($0) }')"
 [ -f "$platform_script" ] && . "$platform_script"
 unset platform_script
 
+# local path
+export PATH=$HOME/.local/bin:$PATH
+
 # python
 [ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONDONTWRITEBYTECODE=1 # don't write pyc/pyo
@@ -63,9 +66,6 @@ function gcloud {
 
 # k8s
 . <(kubectl completion bash)
-
-# local path
-export PATH=$HOME/.local/bin:$PATH
 
 # local bashrc
 [ -f ~/.bash_local ] && . ~/.bash_local
