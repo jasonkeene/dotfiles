@@ -1,5 +1,0 @@
-# fix for ugly background when gvim is fullscreened
-style "vimfix" {
-  bg[NORMAL] = "#303030"
-}
-widget "vim-main-window.*GtkForm" style "vimfix"
