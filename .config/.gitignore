@@ -1,0 +1,6 @@
+/*
+!/.gitignore
+!/nvim
+/nvim/autoload
+/nvim/plugged
+/nvim/ftplugin

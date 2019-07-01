@@ -77,3 +77,5 @@ function aws {
 
 # local bashrc
 [ -f ~/.bash_local ] && . ~/.bash_local
+
+alias vim=nvim

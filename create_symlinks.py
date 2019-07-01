@@ -10,9 +10,6 @@ import shutil
 DOTFILES = {
     ".coveragerc",
     ".cowsay",
-    ".vim",
-    ".vimrc",
-    ".gvimrc",
     ".gtkrc-2.0",
     ".bash_aliases",
     ".bash_darwin",
@@ -40,6 +37,7 @@ DOTFILES = {
     ".virtualenvs/premkvirtualenv",
     ".virtualenvs/prermproject",
     ".virtualenvs/prermvirtualenv",
+    ".config",
 }
 """The home path for your user."""
 HOME_PATH = os.path.expanduser('~')
